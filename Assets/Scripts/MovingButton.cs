@@ -11,11 +11,11 @@ public class MovingButton : MonoBehaviour
         image = GetComponent<Image>();
     }
 
-    public void Init(OnScreenButtonManager.ColliderType colliderType, float speedFactor, float maxX)
+    public void Init(OnScreenButtonManager.ColliderType colliderType, float speedFactor, float endPosition, float maxX)
     {
         Debug.Log("Size Delta: " + maxX);
 
-        transform.DOLocalMoveX(-maxX, maxX * speedFactor).SetEase(Ease.Linear).OnComplete(() => Destroy(gameObject));
+        transform.DOLocalMoveX(-endPosition, maxX * speedFactor).SetEase(Ease.Linear).OnComplete(() => Destroy(gameObject));
 
         switch (colliderType)
         {

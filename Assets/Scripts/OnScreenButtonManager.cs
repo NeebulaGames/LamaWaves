@@ -46,19 +46,37 @@ public class OnScreenButtonManager : MonoBehaviour
         buttonsCoroutine = StartCoroutine(GenerateButtons());
     }
 
+    void OnDisable()
+    {
+        StopCoroutine(buttonsCoroutine);
+    }
+
     private IEnumerator GenerateButtons()
     {
         while (!smash && !countdown)
         {
-            MovingButton btn = Instantiate(baseButton, buttonsContainer);
-            btn.transform.localScale = Vector3.one;
-            Vector3 localPosition = Vector3.one * 100;
-            localPosition.y = -100;
-            btn.transform.localPosition = localPosition;
-            // TODO: Implement me
-            btn.Init(ColliderType.Button_A, speedFactor, canvasRect.sizeDelta.x);
-            yield return new WaitForSeconds(radixTime * 2f + 0.1f);
+            int buttonAmmount = Random.Range(0, 2) == 0 ? 1 : 3;
+            for (int i = 0; i < buttonAmmount; ++i)
+            {
+                CreateButton((ColliderType) Random.Range(0, 2), Vector3.one * 100 * (i + 1), canvasRect.sizeDelta.x + 100 * (3 - i));
+            }
+
+            float timeToWait = Random.Range(1f, 3f);
+            Debug.Log("Waiting " + timeToWait + "s");
+            
+            yield return new WaitForSeconds(radixTime * 2f * buttonAmmount + timeToWait + 0.1f);
         }
+    }
+
+    private MovingButton CreateButton(ColliderType button, Vector3 localPosition, float end)
+    {
+        MovingButton btn = Instantiate(baseButton, buttonsContainer);
+        btn.transform.localScale = Vector3.one;
+        localPosition.y = -100;
+        localPosition.z = 0;
+        btn.transform.localPosition = localPosition;
+        btn.Init(button, speedFactor, end, canvasRect.sizeDelta.x);
+        return btn;
     }
 
     private IEnumerator Countdown()
@@ -71,7 +89,7 @@ public class OnScreenButtonManager : MonoBehaviour
     {
         if (started && !smash && audioManager.TimeUntilNextStage() <= 10f)
         {
-            smash = true;
+            smash = gameplay.smashMode;
             StopCoroutine(buttonsCoroutine);
             countdown = true;
             StartCoroutine(Countdown());

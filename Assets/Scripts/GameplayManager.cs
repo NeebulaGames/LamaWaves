@@ -13,6 +13,7 @@ public class GameplayManager : MonoBehaviour
     {
         gameAudio = GetComponent<AudioManager>();
         buttonsManager = GetComponent<OnScreenButtonManager>();
+        buttonsManager.enabled = true;
     }
 
     void Start()
@@ -30,6 +31,8 @@ public class GameplayManager : MonoBehaviour
     public void EndGame()
     {
         Debug.Log("Game ended");
+        buttonsManager.enabled = false;
+        gameAudio.enabled = false;
         // TODO: Call GameManager here to end game
     }
 }

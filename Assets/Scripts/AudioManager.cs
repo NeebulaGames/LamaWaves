@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
 
     public float TimeUntilNextStage()
     {
-        return audioStages.Peek().time - source.time;
+        return audioStages.Count > 0 ? audioStages.Peek().time - source.time : source.clip.length;
     }
 
     IEnumerator playSound(string sound, uint delay)
