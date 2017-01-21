@@ -64,12 +64,18 @@ public class MainCollider : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other == collidingObject)
+        for (int i = 0; i < 4; i++)
         {
+            if (!hitted_by_player[i])
+                mPlayerManager.Score(i, PlayerManager.ScoreType.Miss);
+        }
+
+        if (other == collidingObject)
+        {
+            
             collidingObject = null;
             hitted_by_player = new bool[] { false, false, false, false };
         }
-
         colliding = false;
     }
 }
