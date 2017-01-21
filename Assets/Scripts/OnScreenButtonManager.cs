@@ -62,7 +62,7 @@ public class OnScreenButtonManager : MonoBehaviour
             }
 
             float timeToWait = Random.Range(1f, 3f);
-            Debug.Log("Waiting " + timeToWait + "s");
+            //Debug.Log("Waiting " + timeToWait + "s");
             
             yield return new WaitForSeconds(radixTime * 2f * buttonAmmount + timeToWait + 0.1f);
         }
