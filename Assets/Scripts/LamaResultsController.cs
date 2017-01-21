@@ -7,8 +7,8 @@ public class LamaResultsController : MonoBehaviour {
 	
 	public Sprite[] ratingMessagesSprites = new Sprite[5];
 
-	//public Animation missAnim;
 	public GameObject ratingMessageObject;
+	public int numLama;
 
 	private Dictionary<ScoreType, Sprite> _ratingMessagesMap = new Dictionary<ScoreType, Sprite>();
 
@@ -59,6 +59,10 @@ public class LamaResultsController : MonoBehaviour {
 	public void ShowMessage(ScoreType ratingMessage)
 	{
 		GameObject go = Instantiate(ratingMessageObject, transform.Find("/UI/Canvas"));
+		Vector3 originalRatingMessagePosition = ratingMessageObject.transform.localPosition;
+		go.transform.localPosition = new Vector3(originalRatingMessagePosition.x + 446.0f * numLama, 
+		                                         originalRatingMessagePosition.y, 
+		                                         originalRatingMessagePosition.z);
 		go.GetComponent<RatingMessageController>().PlayMessage(_ratingMessagesMap[ratingMessage]);
 	}
 }
