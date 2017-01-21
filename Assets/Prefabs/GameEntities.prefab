@@ -414,7 +414,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224489178969504776}
-  - component: {fileID: 114654459874594924}
+  - component: {fileID: 114042830594995934}
   m_Layer: 0
   m_Name: BottomUI
   m_TagString: Untagged
@@ -931,6 +931,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 000000
+--- !u!114 &114042830594995934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1679832936032166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9bf8efecc48a4729ab8ee7ee565b5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114055164652839362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1239,6 +1250,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  bottomUiView: {fileID: 114042830594995934}
 --- !u!114 &114306883919476278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2361,7 +2373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -623, y: -449.5}
+  m_AnchoredPosition: {x: -642, y: -449.5}
   m_SizeDelta: {x: 428, y: 181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224131078333382970
@@ -2569,7 +2581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -195, y: -449.5}
+  m_AnchoredPosition: {x: -214, y: -449.5}
   m_SizeDelta: {x: 428, y: 181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224489178969504776
@@ -2786,7 +2798,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 233, y: -449.5}
+  m_AnchoredPosition: {x: 214, y: -449.5}
   m_SizeDelta: {x: 428, y: 181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224795873921495478
@@ -2915,7 +2927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 661, y: -449.5}
+  m_AnchoredPosition: {x: 642, y: -449.5}
   m_SizeDelta: {x: 428, y: 181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224937134860698190

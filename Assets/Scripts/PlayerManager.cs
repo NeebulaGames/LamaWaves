@@ -14,6 +14,7 @@ namespace LamaWaves.Scripts
 
 public class PlayerManager : MonoBehaviour
 {
+	public BottomUiView bottomUiView;
 
     private int[] scores = { 0, 0, 0, 0 };
     private int[] gauge = { 0, 0, 0, 0 };
@@ -34,8 +35,7 @@ public class PlayerManager : MonoBehaviour
 
 	public void Score(int player, ScoreType type)
 	{
-			
-		Debug.Log("SCOREE");
+		
 		ShowLamaResult(player, type);
 
 		if (mGameplayManager.smashMode)
@@ -55,6 +55,10 @@ public class PlayerManager : MonoBehaviour
 		}
 
 		gauge[player] = Mathf.Clamp(gauge[player], 0, 1000);
+
+		bottomUiView.SetScoreText(player, scores[player]);
+		bottomUiView.SetGauge(player, gauge[player]);
+
 		//Debug.Log("Player: " + player + " - Score: " + scores[player] + " - Gauge: " + gauge[player]);
 	}
 
