@@ -21,10 +21,10 @@ public class PlayerManager : MonoBehaviour {
     void Start () {
         mGameplayManager = FindObjectOfType<GameplayManager>();
     }
-	
-	void Update () {
-		
-	}
+    
+    void Update () {
+        
+    }
 
     public void Score(int player, ScoreType type)
     {
@@ -34,19 +34,20 @@ public class PlayerManager : MonoBehaviour {
 
         if (gauge[player] >= 1000)
         {
-            gauge[player] = 1000;
-            if ((int)type != 1)
-                scores[player] = 50 * (int)type * gauge_bonus;
+            if (type != 0)
+                scores[player] += 50 * (int)type * gauge_bonus;
             else
                 gauge[player] -= 100;
         }
         else
         {
-            scores[player] = 50 * (int)type;
-            gauge[player] = 2 * (int)type - 1;
+            scores[player] += 50 * (int)type;
+            gauge[player] += 20 * (int)type - 1;
         }
+
+        gauge[player] = Mathf.Clamp(gauge[player], 0, 1000);
         //TODO: check if player's gaugue is FULL, then multiply the score and dont increment gaugue, just decrease if miss
         
-        Debug.Log("Player: " + player + " - Type: " + type);
+        Debug.Log("Player: " + player + " - Score: " + scores[player] + " - Gauge: " + gauge[player]);
     }
 }
