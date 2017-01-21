@@ -1,52 +1,15 @@
 fileFormatVersion: 2
-guid: 69bb003311e134bc782edec1e0de4253
-timeCreated: 1484958028
+guid: 0e1434dbb84134083bbaf7a40398be4b
+timeCreated: 1484962350
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: a-wave-particle--blue-6187
-    100002: a-wave-particle--blue-6188
-    100004: a-wave-particle--blue-6189
-    100006: a-wave-particle--blue-6190
-    100008: a-wave-particle--blue-6191
-    100010: a-wave-particle--blue-6192
-    100012: a-wave-particle--blue-6193
-    100014: a-wave-particle--blue-6194
-    100016: //RootNode
-    400000: a-wave-particle--blue-6187
-    400002: a-wave-particle--blue-6188
-    400004: a-wave-particle--blue-6189
-    400006: a-wave-particle--blue-6190
-    400008: a-wave-particle--blue-6191
-    400010: a-wave-particle--blue-6192
-    400012: a-wave-particle--blue-6193
-    400014: a-wave-particle--blue-6194
-    400016: //RootNode
-    2300000: a-wave-particle--blue-6187
-    2300002: a-wave-particle--blue-6188
-    2300004: a-wave-particle--blue-6189
-    2300006: a-wave-particle--blue-6190
-    2300008: a-wave-particle--blue-6191
-    2300010: a-wave-particle--blue-6192
-    2300012: a-wave-particle--blue-6193
-    2300014: a-wave-particle--blue-6194
-    3300000: a-wave-particle--blue-6187
-    3300002: a-wave-particle--blue-6188
-    3300004: a-wave-particle--blue-6189
-    3300006: a-wave-particle--blue-6190
-    3300008: a-wave-particle--blue-6191
-    3300010: a-wave-particle--blue-6192
-    3300012: a-wave-particle--blue-6193
-    3300014: a-wave-particle--blue-6194
-    4300000: a-wave-particle--blue-6187
-    4300002: a-wave-particle--blue-6188
-    4300004: a-wave-particle--blue-6189
-    4300006: a-wave-particle--blue-6190
-    4300008: a-wave-particle--blue-6191
-    4300010: a-wave-particle--blue-6192
-    4300012: a-wave-particle--blue-6193
-    4300014: a-wave-particle--blue-6194
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: a-wave-particle--blue-6220
   materials:
     importMaterials: 1
     materialName: 0
