@@ -18,12 +18,11 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4316440636052418}
-  - component: {fileID: 82821151679738480}
-  - component: {fileID: 114491219375967318}
+  - component: {fileID: 4837793029278414}
   - component: {fileID: 114975831265409898}
   - component: {fileID: 114793125110488856}
   - component: {fileID: 114538301855520850}
+  - component: {fileID: 4458394788279694}
   m_Layer: 0
   m_Name: GameplayManager
   m_TagString: Untagged
@@ -93,7 +92,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4458394788279694
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398589308444122}
@@ -102,6 +101,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4096367524895276}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4837793029278414
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1398589308444122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &82662188731549300
@@ -202,18 +214,19 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073606674602904}
+  m_GameObject: {fileID: 1398589308444122}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c611d301adf0e1645a584e3e4b075393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gauge_bonus: 2
 --- !u!114 &114793125110488856
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1073606674602904}
+  m_GameObject: {fileID: 1398589308444122}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebd19aacfa9fdcd4ea0901e82735d74e, type: 3}
@@ -230,6 +243,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2018cace102ae44418cf4df859228311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameAudio: {fileID: 114428467620432090}
   smashMode: 0
   numberOfPlayers: 0

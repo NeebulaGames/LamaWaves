@@ -26,7 +26,7 @@ public class WaveAnimation : MonoBehaviour {
 
     void Update()
     {
-/*        if (mGameplayManager.smashMode && !turboMode)
+        if (mGameplayManager.smashMode && !turboMode)
         {
             ChangeMode();
         }
@@ -34,16 +34,16 @@ public class WaveAnimation : MonoBehaviour {
         if (!mGameplayManager.smashMode && turboMode)
         {
             ChangeMode();
-        }*/
+        }
     }
 
     public void ChangeMode()
     {
         myTween.Rewind();
         if(turboMode)
-            myTween = transform.DOLocalMoveY(moveDistance, refreshSpeed).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
+            myTween = transform.DOLocalMoveY(myYposition + moveDistance, refreshSpeed).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
         else
-            myTween = transform.DOLocalMoveY(turboDistance, turboRefresh).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
+            myTween = transform.DOLocalMoveY(myYposition + turboDistance, turboRefresh).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
         turboMode = !turboMode;
     }
 }
