@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour {
     }
     
     void Update () {
-        
+        //Debug.Log("Player: " + 1 + " - Score: " + scores[0] + " - Gauge: " + gauge[0]);
     }
 
     public void Score(int player, ScoreType type)
@@ -46,8 +46,6 @@ public class PlayerManager : MonoBehaviour {
         }
 
         gauge[player] = Mathf.Clamp(gauge[player], 0, 1000);
-        //TODO: check if player's gaugue is FULL, then multiply the score and dont increment gaugue, just decrease if miss
-        
-        Debug.Log("Player: " + player + " - Score: " + scores[player] + " - Gauge: " + gauge[player]);
+        //Debug.Log("Player: " + player + " - Score: " + scores[player] + " - Gauge: " + gauge[player]);
     }
 }
