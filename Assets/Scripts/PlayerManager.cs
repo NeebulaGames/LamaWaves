@@ -36,7 +36,8 @@ namespace LamaWaves.Scripts
 
 		public void Score(int player, ScoreType type)
 		{
-
+			
+			Debug.Log("SCOREE");
 			ShowLamaResult(player, type);
 
 			if (mGameplayManager.smashMode)

@@ -11,6 +11,7 @@ public class OnScreenButtonManager : MonoBehaviour
     }
 
     public Transform buttonsContainer;
+	public MainCollider mainCollider;
 
     private GameplayManager gameplay;
     private AudioManager audioManager;
@@ -45,6 +46,7 @@ public class OnScreenButtonManager : MonoBehaviour
         started = true;
         buttonsContainer.gameObject.SetActive(true);
         buttonsCoroutine = StartCoroutine(GenerateButtons());
+		mainCollider.gameObject.SetActive(true);
     }
 
     void OnDisable()
@@ -52,6 +54,7 @@ public class OnScreenButtonManager : MonoBehaviour
         if (buttonsCoroutine != null)
             StopCoroutine(buttonsCoroutine);
         buttonsContainer.gameObject.SetActive(false);
+		mainCollider.gameObject.SetActive(false);
     }
 
     private IEnumerator GenerateButtons()

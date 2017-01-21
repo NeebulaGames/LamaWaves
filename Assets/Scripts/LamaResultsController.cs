@@ -58,7 +58,7 @@ public class LamaResultsController : MonoBehaviour {
 
 	public void ShowMessage(ScoreType ratingMessage)
 	{
-		GameObject go = Instantiate(ratingMessageObject, transform.Find("/UI/Canvas"));
+		GameObject go = Instantiate(ratingMessageObject, transform.Find("/GameEntities/UI/Canvas"));
 		Vector3 originalRatingMessagePosition = ratingMessageObject.transform.localPosition;
 		go.transform.localPosition = new Vector3(originalRatingMessagePosition.x + 446.0f * numLama, 
 		                                         originalRatingMessagePosition.y, 
