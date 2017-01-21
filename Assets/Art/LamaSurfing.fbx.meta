@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: f8fb7438b5e3b9c4fb09ec1bdef674df
-timeCreated: 1484999043
+guid: 03ee39130bfce437b87f4fd8310c218a
+timeCreated: 1485002552
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Box558
+    100000: Lama
     100002: //RootNode
-    100004: YELLOW_DARKER001
-    400000: Box558
+    100004: SurfTable
+    400000: Lama
     400002: //RootNode
-    400004: YELLOW_DARKER001
-    2300000: Box558
-    2300002: YELLOW_DARKER001
-    3300000: Box558
-    3300002: YELLOW_DARKER001
-    4300000: YELLOW_DARKER001
-    4300002: Box558
+    400004: SurfTable
+    2300000: Lama
+    2300002: SurfTable
+    3300000: Lama
+    3300002: SurfTable
+    4300000: SurfTable
+    4300002: Lama
   materials:
     importMaterials: 1
     materialName: 0

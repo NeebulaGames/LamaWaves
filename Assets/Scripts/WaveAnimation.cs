@@ -26,7 +26,7 @@ public class WaveAnimation : MonoBehaviour {
 
     void Update()
     {
-        if (mGameplayManager.smashMode && !turboMode)
+/*        if (mGameplayManager.smashMode && !turboMode)
         {
             ChangeMode();
         }
@@ -34,7 +34,7 @@ public class WaveAnimation : MonoBehaviour {
         if (!mGameplayManager.smashMode && turboMode)
         {
             ChangeMode();
-        }
+        }*/
     }
 
     public void ChangeMode()
