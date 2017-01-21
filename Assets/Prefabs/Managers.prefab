@@ -161,6 +161,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gauge_bonus: 2
+  lamaResultsControllers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114793125110488856
 MonoBehaviour:
   m_ObjectHideFlags: 1
