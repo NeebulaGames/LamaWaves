@@ -1,5 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
+using DG.Tweening;
 using UnityEngine;
 
 public class OnScreenButtonManager : MonoBehaviour
@@ -9,6 +10,11 @@ public class OnScreenButtonManager : MonoBehaviour
         Button_A,
         Button_B
     }
+
+    public GameObject countdown3;
+    public GameObject countdown2;
+    public GameObject countdown1;
+    public GameObject countdownSmash;
 
     public Transform buttonsContainer;
 	public MainCollider mainCollider;
@@ -87,7 +93,38 @@ public class OnScreenButtonManager : MonoBehaviour
 
     private IEnumerator Countdown()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(4.8f);
+
+        GameObject instance;
+        GameObject canvas = GameObject.Find("Canvas");
+        Vector3 position = new Vector3(0f, 250f, 0f);
+
+        instance = Instantiate(countdown3, canvas.transform);
+        instance.transform.localPosition = position;
+        instance.GetComponent<Image>().CrossFadeAlpha(0, 1.4f, false);
+        instance.transform.DOScale(2, 1.4f).OnComplete(() => Destroy(instance));
+        yield return new WaitForSeconds(1.4f);
+
+        instance = Instantiate(countdown2, canvas.transform);
+        instance.transform.localPosition = position;
+        instance.GetComponent<Image>().CrossFadeAlpha(0, 1.4f, false);
+        instance.transform.DOScale(2, 1.4f).OnComplete(() => Destroy(instance));
+        yield return new WaitForSeconds(1.4f);
+
+        instance = Instantiate(countdown1, canvas.transform);
+        instance.GetComponent<Image>().CrossFadeAlpha(0, 1.4f, false);
+        instance.transform.DOScale(2, 1.4f).OnComplete(() => Destroy(instance));
+        instance.transform.localPosition = position;
+        yield return new WaitForSeconds(1.4f);
+
+        instance = Instantiate(countdownSmash, canvas.transform);
+        instance.GetComponent<Image>().CrossFadeAlpha(0, 1.4f, false);
+        instance.transform.DOScale(2, 1.4f).OnComplete(() => Destroy(instance));
+        instance.transform.localPosition = position;
+        yield return new WaitForSeconds(1.4f);
+
+        //yield return new WaitForSeconds(10f);
+        
         countdown = false;
     }
 
