@@ -18,7 +18,7 @@ public class WaveAnimation : MonoBehaviour {
 
     void Start () {
         mGameplayManager = FindObjectOfType<GameplayManager>();
-        turboDistance = moveDistance * 2;
+        turboDistance = moveDistance;
         turboRefresh = refreshSpeed / 2;
         myTween = transform.DOLocalMoveY(moveDistance, refreshSpeed).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
     }
