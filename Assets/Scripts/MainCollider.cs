@@ -1,21 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MainCollider : MonoBehaviour {
 
-
     public bool colliding;
-    public Collider2D collidingObject;
+    private Collider2D collidingObject;
+    private PlayerManager mPlayerManager;
 
     private Collider2D mCollider2D;
 
-    // Use this for initialization
+    private bool[] hitted_by_player = { false, false, false, false };
+    
     void Start () {
         mCollider2D = GetComponent<Collider2D>();
+        mPlayerManager = FindObjectOfType<PlayerManager>();
     }
 	
-	// Update is called once per frame
 	void Update () {
         //if (collidingObject != null)
         //{
@@ -24,25 +23,26 @@ public class MainCollider : MonoBehaviour {
         //}
     }
 
-    public GameplayManager.ScoreType GetScore()
+    public void GetScore(int player_number)
     {
-        GameplayManager.ScoreType ret = GameplayManager.ScoreType.Miss;
+        PlayerManager.ScoreType ret = PlayerManager.ScoreType.Miss;
 
-        if (colliding)
+        if (colliding && !hitted_by_player[player_number])
         {
+            hitted_by_player[player_number] = true;
+            Debug.Log(hitted_by_player[player_number]);
             float collidingPercentatge = BoundsContainedPercentage(collidingObject.bounds, mCollider2D.bounds);
 
             if (collidingPercentatge < 0.2)
-                return GameplayManager.ScoreType.Bad;
+                ret = PlayerManager.ScoreType.Bad;
             else if (collidingPercentatge < 0.5)
-                return GameplayManager.ScoreType.Ok;
+                ret = PlayerManager.ScoreType.Ok;
             else if (collidingPercentatge < 0.7)
-                return GameplayManager.ScoreType.Good;
+                ret = PlayerManager.ScoreType.Good;
             else if (collidingPercentatge < 0.9)
-                return GameplayManager.ScoreType.Perfect;
+                ret = PlayerManager.ScoreType.Perfect; 
         }
-
-        return ret;
+        mPlayerManager.Score(player_number, ret);
     }
 
     private float BoundsContainedPercentage(Bounds obj, Bounds region)
@@ -60,7 +60,11 @@ public class MainCollider : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other)
     {
         if(other == collidingObject)
+        {
             collidingObject = null;
+            hitted_by_player = new bool[] { false, false, false, false };
+        }
+
         colliding = false;
     }
 }
