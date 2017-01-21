@@ -33,7 +33,7 @@ public class GameplayManager : MonoBehaviour
         gameAudio.enabled = true;
     }
 
-    void GameReady()
+    public void GameReady()
     {
         buttonsManager.enabled = true;
         buttonsManager.Init();
