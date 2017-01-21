@@ -1,26 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
-public class MovingButton : MonoBehaviour {
+public class MovingButton : MonoBehaviour
+{
+    private Image image;
 
-    public enum ColliderType
+    void Awake()
     {
-        Button_A,
-        Button_B
+        image = GetComponent<Image>();
     }
 
-    public ColliderType mColliderType;
-    
-    // Use this for initialization
-    void Start () {
-        //testing remove later
-       transform.DOLocalMoveX(-50, 3).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
+    public void Init(OnScreenButtonManager.ColliderType colliderType, float speedFactor, float endPosition, float maxX)
+    {
+        Debug.Log("Size Delta: " + maxX);
+
+        transform.DOLocalMoveX(-endPosition, maxX * speedFactor).SetEase(Ease.Linear).OnComplete(() => Destroy(gameObject));
+
+        switch (colliderType)
+        {
+            case OnScreenButtonManager.ColliderType.Button_A:
+                image.sprite = Resources.Load<Sprite>("a_button");
+                break;
+            case OnScreenButtonManager.ColliderType.Button_B:
+                image.sprite = Resources.Load<Sprite>("b_button");
+                break;
+        }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
