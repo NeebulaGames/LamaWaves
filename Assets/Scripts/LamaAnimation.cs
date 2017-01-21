@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
-public class WaveAnimation : MonoBehaviour {
+public class LamaAnimation : MonoBehaviour {
 
     public float moveDistance = 1f;
     public float refreshSpeed = 0.2f; //lower => faster
@@ -21,7 +21,7 @@ public class WaveAnimation : MonoBehaviour {
         mGameplayManager = FindObjectOfType<GameplayManager>();
         turboDistance = moveDistance;
         turboRefresh = refreshSpeed / 2;
-        myTween = transform.DOLocalMoveY(myYposition + moveDistance, refreshSpeed).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
+		myTween = transform.DOLocalMoveY(myYposition + moveDistance, refreshSpeed).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
     }
 
     void Update()
@@ -41,9 +41,9 @@ public class WaveAnimation : MonoBehaviour {
     {
         myTween.Rewind();
         if(turboMode)
-            myTween = transform.DOLocalMoveY(moveDistance, refreshSpeed).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
+			myTween = transform.DOLocalMoveY(moveDistance, refreshSpeed).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
         else
-            myTween = transform.DOLocalMoveY(turboDistance, turboRefresh).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
+			myTween = transform.DOLocalMoveY(turboDistance, turboRefresh).SetLoops(-1, LoopType.Yoyo).SetUpdate(true);
         turboMode = !turboMode;
     }
 }
