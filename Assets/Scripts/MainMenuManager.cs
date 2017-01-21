@@ -5,7 +5,7 @@ using UnityEngine;
 public class MainMenuManager : MonoBehaviour
 {
     public GameObject mainMenu;
-
+    
     void OnEnable()
     {
         mainMenu.SetActive(true);
@@ -13,6 +13,6 @@ public class MainMenuManager : MonoBehaviour
 
     void OnDisable()
     {
-      mainMenu.SetActive(false);
+        mainMenu.SetActive(false);
     }
 }

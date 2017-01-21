@@ -5,11 +5,13 @@ using UnityEngine;
 public class LamaGameManager : MonoBehaviour
 {
     MainMenuManager mainMenu;
+    private PlayerSelectorManager selector;
     GameplayManager gameplay;
 
     void Awake()
     {
         mainMenu = GetComponent<MainMenuManager>();
+        selector = GetComponent<PlayerSelectorManager>();
         gameplay = GetComponent<GameplayManager>();
 
         gameplay.enabled = false;
@@ -19,10 +21,12 @@ public class LamaGameManager : MonoBehaviour
     {
         mainMenu.enabled = false;
 
+        selector.enabled = true;
     }
 
     public void StartGame()
     {
+        selector.enabled = false;
         gameplay.enabled = true;
 
         gameplay.StartGame();
