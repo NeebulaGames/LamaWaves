@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LamaWaves.Scripts;
+using UnityEngine;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class GameplayManager : MonoBehaviour
     private LamaGameManager gameManager;
     private AudioManager gameAudio;
     private OnScreenButtonManager buttonsManager;
+	private PlayerManager playerManager;
 
     void Awake()
     {
         gameManager = GetComponent<LamaGameManager>();
         gameAudio = GetComponent<AudioManager>();
         buttonsManager = GetComponent<OnScreenButtonManager>();
+		playerManager = GetComponent<PlayerManager>();
+
     }
 
     void Start()
@@ -31,6 +35,7 @@ public class GameplayManager : MonoBehaviour
         gameAudio.PlaySound("HighFive", audioDelay);
         smashMode = false;
         gameAudio.enabled = true;
+		playerManager.enabled = true;
     }
 
     public void GameReady()
@@ -44,6 +49,7 @@ public class GameplayManager : MonoBehaviour
         Debug.Log("Game ended");
         buttonsManager.enabled = false;
         gameAudio.enabled = false;
+		playerManager.enabled = false;
         
         gameManager.EndGame();
     }

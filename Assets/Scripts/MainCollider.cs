@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LamaWaves.Scripts;
+using UnityEngine;
 
 public class MainCollider : MonoBehaviour {
 
@@ -25,7 +26,7 @@ public class MainCollider : MonoBehaviour {
 
     public void GetScore(int player_number, OnScreenButtonManager.ColliderType button_type)
     {
-        PlayerManager.ScoreType ret = PlayerManager.ScoreType.Miss;
+        ScoreType ret = ScoreType.Miss;
 
         if (colliding && !hitted_by_player[player_number])
         {
@@ -37,13 +38,13 @@ public class MainCollider : MonoBehaviour {
                 float collidingPercentatge = BoundsContainedPercentage(collidingObject.bounds, mCollider2D.bounds);
 
                 if (collidingPercentatge < 0.2)
-                    ret = PlayerManager.ScoreType.Bad;
+                    ret = ScoreType.Bad;
                 else if (collidingPercentatge < 0.5)
-                    ret = PlayerManager.ScoreType.Ok;
+                    ret = ScoreType.Ok;
                 else if (collidingPercentatge < 0.7)
-                    ret = PlayerManager.ScoreType.Good;
+                    ret = ScoreType.Good;
                 else if (collidingPercentatge < 0.9)
-                    ret = PlayerManager.ScoreType.Perfect;
+                    ret = ScoreType.Perfect;
             }
         }
         mPlayerManager.Score(player_number, ret);
@@ -67,7 +68,7 @@ public class MainCollider : MonoBehaviour {
         for (int i = 0; i < 4; i++)
         {
             if (!hitted_by_player[i])
-                mPlayerManager.Score(i, PlayerManager.ScoreType.Miss);
+                mPlayerManager.Score(i, ScoreType.Miss);
         }
 
         if (other == collidingObject)

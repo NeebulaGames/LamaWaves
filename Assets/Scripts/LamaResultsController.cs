@@ -1,38 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LamaWaves.Scripts;
 
 public class LamaResultsController : MonoBehaviour {
-
-	public enum RatingMessage
-	{
-		Bad,
-		Good,
-		Missed,
-		Ok,
-		Perfect
-	}
-
+	
 	public Sprite[] ratingMessagesSprites = new Sprite[5];
 
-	//public Animation missAnim;
 	public GameObject ratingMessageObject;
+	public int numLama;
 
-	private Dictionary<RatingMessage, Sprite> _ratingMessagesMap = new Dictionary<RatingMessage, Sprite>();
+	private Dictionary<ScoreType, Sprite> _ratingMessagesMap = new Dictionary<ScoreType, Sprite>();
 
 
 	void Awake()
 	{
-		_ratingMessagesMap.Add(RatingMessage.Bad, ratingMessagesSprites[0]);
-		_ratingMessagesMap.Add(RatingMessage.Good, ratingMessagesSprites[1]);
-		_ratingMessagesMap.Add(RatingMessage.Missed, ratingMessagesSprites[2]);
-		_ratingMessagesMap.Add(RatingMessage.Ok, ratingMessagesSprites[3]);
-		_ratingMessagesMap.Add(RatingMessage.Perfect, ratingMessagesSprites[4]);
+		_ratingMessagesMap.Add(ScoreType.Bad, ratingMessagesSprites[0]);
+		_ratingMessagesMap.Add(ScoreType.Good, ratingMessagesSprites[1]);
+		_ratingMessagesMap.Add(ScoreType.Miss, ratingMessagesSprites[2]);
+		_ratingMessagesMap.Add(ScoreType.Ok, ratingMessagesSprites[3]);
+		_ratingMessagesMap.Add(ScoreType.Perfect, ratingMessagesSprites[4]);
 	}
 
 	// Use this for initialization
 	void Start () {
-		//missAnim = GetComponent<Animation>();
+		
 	}
 	
 	// Update is called once per frame
@@ -40,33 +32,37 @@ public class LamaResultsController : MonoBehaviour {
 
 		if (Input.GetKeyUp(KeyCode.Q))
 		{
-			ShowMessage(RatingMessage.Bad);
+			ShowMessage(ScoreType.Bad);
 		}
 
 		if (Input.GetKeyUp(KeyCode.W))
 		{
-			ShowMessage(RatingMessage.Good);
+			ShowMessage(ScoreType.Good);
 		}
 
 		if (Input.GetKeyUp(KeyCode.E))
 		{
-			ShowMessage(RatingMessage.Missed);
+			ShowMessage(ScoreType.Miss);
 		}
 
 		if (Input.GetKeyUp(KeyCode.R))
 		{
-			ShowMessage(RatingMessage.Ok);
+			ShowMessage(ScoreType.Ok);
 		}
 
 		if (Input.GetKeyUp(KeyCode.T))
 		{
-			ShowMessage(RatingMessage.Perfect);
+			ShowMessage(ScoreType.Perfect);
 		}
 	}
 
-	public void ShowMessage(RatingMessage ratingMessage)
+	public void ShowMessage(ScoreType ratingMessage)
 	{
-		GameObject go = Instantiate(ratingMessageObject, transform.Find("/Canvas"));
+		GameObject go = Instantiate(ratingMessageObject, transform.Find("/GameEntities/UI/Canvas"));
+		Vector3 originalRatingMessagePosition = ratingMessageObject.transform.localPosition;
+		go.transform.localPosition = new Vector3(originalRatingMessagePosition.x + 446.0f * numLama, 
+		                                         originalRatingMessagePosition.y, 
+		                                         originalRatingMessagePosition.z);
 		go.GetComponent<RatingMessageController>().PlayMessage(_ratingMessagesMap[ratingMessage]);
 	}
 }
