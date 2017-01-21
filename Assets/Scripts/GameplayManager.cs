@@ -14,6 +14,7 @@ public class GameplayManager : MonoBehaviour
     public AudioManager gameAudio;
     public const uint audioDelay = 1;
     public bool smashMode = false;
+    public int numberOfPlayers;
 
     private int[] scores = {0, 0, 0, 0};
     private int[] gauge = {0, 0, 0, 0};
