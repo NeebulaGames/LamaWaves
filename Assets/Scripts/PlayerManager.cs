@@ -15,6 +15,19 @@ namespace LamaWaves.Scripts
 	public class PlayerManager : MonoBehaviour
 	{
 
+    private int[] scores = { 0, 0, 0, 0 };
+    private int[] gauge = { 0, 0, 0, 0 };
+    private GameplayManager mGameplayManager;
+    private List<Player> playerList;
+    
+    void Start () {
+        mGameplayManager = FindObjectOfType<GameplayManager>();
+        //StartCoroutine(mGameplayManager.CountdownStartGame()); //just for test
+    }
+    
+    void Update () {
+        //Debug.Log("Player: " + 1 + " - Score: " + scores[0] + " - Gauge: " + gauge[0]);
+    }
 		public int gauge_bonus = 2;
 
 		public LamaResultsController[] lamaResultsControllers = new LamaResultsController[4];
