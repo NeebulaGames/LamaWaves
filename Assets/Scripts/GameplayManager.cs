@@ -20,7 +20,7 @@ public class GameplayManager : MonoBehaviour
 
     void Start ()
     {
-        gameAudio.PlaySound("", audioDelay);
+        gameAudio.PlaySound("HighFive", audioDelay);
         smashMode = false;
     }
     
@@ -37,6 +37,7 @@ public class GameplayManager : MonoBehaviour
 
     public void EndGame()
     {
+        Debug.Log("Game ended");
         // TODO: Call GameManager here to end game
     }
 }
