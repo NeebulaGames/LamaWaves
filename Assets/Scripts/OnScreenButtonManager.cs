@@ -10,6 +10,8 @@ public class OnScreenButtonManager : MonoBehaviour
         Button_B
     }
 
+    public Transform buttonsContainer;
+
     private GameplayManager gameplay;
     private AudioManager audioManager;
 
@@ -20,7 +22,6 @@ public class OnScreenButtonManager : MonoBehaviour
     private bool countdown = false;
     private bool smash = false;
     private Coroutine buttonsCoroutine;
-    private Transform buttonsContainer;
     private RectTransform canvasRect;
 
     private MovingButton baseButton;
@@ -33,7 +34,6 @@ public class OnScreenButtonManager : MonoBehaviour
         canvasRect = GameObject.Find("Canvas").GetComponent<RectTransform>();
         speed = canvasRect.sizeDelta.x * speedFactor;
         radixTime = speed / 50f;
-        buttonsContainer = GameObject.Find("ButtonsContainer").transform;
 
         baseButton = Resources.Load<MovingButton>("MovingButton");
     }
@@ -48,7 +48,8 @@ public class OnScreenButtonManager : MonoBehaviour
 
     void OnDisable()
     {
-        StopCoroutine(buttonsCoroutine);
+        if (buttonsCoroutine != null)
+            StopCoroutine(buttonsCoroutine);
     }
 
     private IEnumerator GenerateButtons()

@@ -6,21 +6,19 @@ public class GameplayManager : MonoBehaviour
     public bool smashMode = false;
     public int numberOfPlayers;
 
+    private LamaGameManager gameManager;
     private AudioManager gameAudio;
     private OnScreenButtonManager buttonsManager;
 
     void Awake()
     {
+        gameManager = GetComponent<LamaGameManager>();
         gameAudio = GetComponent<AudioManager>();
         buttonsManager = GetComponent<OnScreenButtonManager>();
-        buttonsManager.enabled = true;
     }
 
     void Start()
     {
-        gameAudio.PlaySound("HighFive", audioDelay);
-        buttonsManager.Init();
-        smashMode = false;
     }
     
     void Update()
@@ -28,11 +26,31 @@ public class GameplayManager : MonoBehaviour
         
     }
 
+    public void StartGame()
+    {
+        gameAudio.PlaySound("HighFive", audioDelay);
+        smashMode = false;
+        gameAudio.enabled = true;
+    }
+
+    void GameReady()
+    {
+        buttonsManager.enabled = true;
+        buttonsManager.Init();
+    }
+
     public void EndGame()
     {
         Debug.Log("Game ended");
         buttonsManager.enabled = false;
         gameAudio.enabled = false;
-        // TODO: Call GameManager here to end game
+        
+        gameManager.EndGame();
+    }
+
+    void OnDisable()
+    {
+        buttonsManager.enabled = false;
+        gameAudio.enabled = false;
     }
 }
