@@ -2,8 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-﻿using LamaWaves.Scripts;
-using UnityEngine;
+using LamaWaves.Scripts;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -32,6 +31,7 @@ public class GameplayManager : MonoBehaviour
 
     void Start()
     {
+
     }
     
     void Update()
@@ -100,6 +100,8 @@ public class GameplayManager : MonoBehaviour
         instance.GetComponent<Image>().CrossFadeAlpha(0, 1.4f, false);
         instance.transform.DOScale(2, 1.4f).OnComplete(() => Destroy(instance));
         instance.transform.localPosition = position;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.4f);
+
+        GameReady();
     }
 }

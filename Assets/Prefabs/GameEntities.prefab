@@ -414,6 +414,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224489178969504776}
+  - component: {fileID: 114654459874594924}
   m_Layer: 0
   m_Name: BottomUI
   m_TagString: Untagged
@@ -1142,6 +1143,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashMode: 0
   numberOfPlayers: 0
+  countdown3: {fileID: 1241885248613012, guid: e93b9e482d4e59b4fbbb12bdb3ab670d, type: 2}
+  countdown2: {fileID: 1186091184662784, guid: 00cd9e1a2cadc90458f6d5a9a5bfaa10, type: 2}
+  countdown1: {fileID: 1799965697492386, guid: 4d12e2f25a6331149bf32387f1bd6e80, type: 2}
+  countdownGO: {fileID: 1409396357287080, guid: 0f197b2743791cc43847c7d7cfe59faf,
+    type: 2}
 --- !u!114 &114263029582209802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1610,6 +1616,18 @@ MonoBehaviour:
   m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114654459874594924
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1679832936032166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9bf8efecc48a4729ab8ee7ee565b5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueScoreText: {fileID: 0}
 --- !u!114 &114671841572681098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2033,6 +2051,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989e971b877854a468abdd57f1742ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdown3: {fileID: 1241885248613012, guid: e93b9e482d4e59b4fbbb12bdb3ab670d, type: 2}
+  countdown2: {fileID: 1186091184662784, guid: 00cd9e1a2cadc90458f6d5a9a5bfaa10, type: 2}
+  countdown1: {fileID: 1799965697492386, guid: 4d12e2f25a6331149bf32387f1bd6e80, type: 2}
+  countdownSmash: {fileID: 1110520766410330, guid: bb97d9417007b314ba06ea249a990794,
+    type: 2}
   buttonsContainer: {fileID: 224795873921495478}
   mainCollider: {fileID: 114895061703173632}
 --- !u!114 &114964736531180380
@@ -2334,11 +2357,11 @@ RectTransform:
   - {fileID: 224631992015365066}
   - {fileID: 224029888296528366}
   m_Father: {fileID: 224489178969504776}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 233, y: -449.5}
+  m_AnchoredPosition: {x: -623, y: -449.5}
   m_SizeDelta: {x: 428, y: 181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224131078333382970
@@ -2546,7 +2569,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 661, y: -449.5}
+  m_AnchoredPosition: {x: -195, y: -449.5}
   m_SizeDelta: {x: 428, y: 181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224489178969504776
@@ -2559,9 +2582,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 224063059202783432}
   - {fileID: 224933197057191226}
   - {fileID: 224772266726047564}
-  - {fileID: 224063059202783432}
   - {fileID: 224481983914398778}
   m_Father: {fileID: 224385113300077360}
   m_RootOrder: 7
@@ -2759,11 +2782,11 @@ RectTransform:
   - {fileID: 224186085801059426}
   - {fileID: 224937134860698190}
   m_Father: {fileID: 224489178969504776}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -195, y: -449.5}
+  m_AnchoredPosition: {x: 233, y: -449.5}
   m_SizeDelta: {x: 428, y: 181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224795873921495478
@@ -2888,11 +2911,11 @@ RectTransform:
   - {fileID: 224718354659774528}
   - {fileID: 224764789130844010}
   m_Father: {fileID: 224489178969504776}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -623, y: -449.5}
+  m_AnchoredPosition: {x: 661, y: -449.5}
   m_SizeDelta: {x: 428, y: 181}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224937134860698190

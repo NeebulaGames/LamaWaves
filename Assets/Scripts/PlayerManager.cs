@@ -12,14 +12,17 @@ namespace LamaWaves.Scripts
 		Perfect
 	}
 
-	public class PlayerManager : MonoBehaviour
-	{
+public class PlayerManager : MonoBehaviour
+{
 
     private int[] scores = { 0, 0, 0, 0 };
     private int[] gauge = { 0, 0, 0, 0 };
     private GameplayManager mGameplayManager;
     private List<Player> playerList;
-    
+    public int gauge_bonus = 2;
+
+	public LamaResultsController[] lamaResultsControllers = new LamaResultsController[4];
+
     void Start () {
         mGameplayManager = FindObjectOfType<GameplayManager>();
         //StartCoroutine(mGameplayManager.CountdownStartGame()); //just for test
@@ -28,54 +31,36 @@ namespace LamaWaves.Scripts
     void Update () {
         //Debug.Log("Player: " + 1 + " - Score: " + scores[0] + " - Gauge: " + gauge[0]);
     }
-		public int gauge_bonus = 2;
 
-		public LamaResultsController[] lamaResultsControllers = new LamaResultsController[4];
-
-		private int[] scores = { 0, 0, 0, 0 };
-		private int[] gauge = { 0, 0, 0, 0 };
-		private GameplayManager mGameplayManager;
-		private List<Player> playerList;
-
-		void Start()
-		{
-			mGameplayManager = FindObjectOfType<GameplayManager>();
-		}
-
-		void Update()
-		{
-			//Debug.Log("Player: " + 1 + " - Score: " + scores[0] + " - Gauge: " + gauge[0]);
-		}
-
-		public void Score(int player, ScoreType type)
-		{
+	public void Score(int player, ScoreType type)
+	{
 			
-			Debug.Log("SCOREE");
-			ShowLamaResult(player, type);
+		Debug.Log("SCOREE");
+		ShowLamaResult(player, type);
 
-			if (mGameplayManager.smashMode)
-				type = ScoreType.Good;
+		if (mGameplayManager.smashMode)
+			type = ScoreType.Good;
 
-			if (gauge[player] >= 1000)
-			{
-				if (type != 0)
-					scores[player] += 50 * (int)type * gauge_bonus;
-				else
-					gauge[player] -= 100;
-			}
-			else
-			{
-				scores[player] += 50 * (int)type;
-				gauge[player] += 20 * (int)type - 1;
-			}
-
-			gauge[player] = Mathf.Clamp(gauge[player], 0, 1000);
-			//Debug.Log("Player: " + player + " - Score: " + scores[player] + " - Gauge: " + gauge[player]);
-		}
-
-		public void ShowLamaResult(int lamaPlayer, ScoreType resultType)
+		if (gauge[player] >= 1000)
 		{
-			lamaResultsControllers[lamaPlayer].ShowMessage(resultType);
+			if (type != 0)
+				scores[player] += 50 * (int)type * gauge_bonus;
+			else
+				gauge[player] -= 100;
 		}
+		else
+		{
+			scores[player] += 50 * (int)type;
+			gauge[player] += 20 * (int)type - 1;
+		}
+
+		gauge[player] = Mathf.Clamp(gauge[player], 0, 1000);
+		//Debug.Log("Player: " + player + " - Score: " + scores[player] + " - Gauge: " + gauge[player]);
+	}
+
+	public void ShowLamaResult(int lamaPlayer, ScoreType resultType)
+	{
+		lamaResultsControllers[lamaPlayer].ShowMessage(resultType);
+	}
 	}
 }
