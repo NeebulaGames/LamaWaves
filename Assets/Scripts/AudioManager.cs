@@ -18,14 +18,14 @@ struct AudioStage
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] GameplayManager gameplay;
-
+    private GameplayManager gameplay;
     private AudioSource source;
     private Queue<AudioStage> audioStages = new Queue<AudioStage>(0);
     private float delay = 0f;
 
     void Awake()
     {
+        gameplay = GetComponent<GameplayManager>();
         source = GetComponent<AudioSource>();
         source.loop = false;
     }
@@ -53,6 +53,11 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(playSound(sound, delay));
         // TODO: Load audio stages from file
         createDummyStages();
+    }
+
+    public float TimeUntilNextStage()
+    {
+        return audioStages.Peek().time - source.time;
     }
 
     IEnumerator playSound(string sound, uint delay)
