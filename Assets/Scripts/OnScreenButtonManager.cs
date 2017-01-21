@@ -43,6 +43,7 @@ public class OnScreenButtonManager : MonoBehaviour
         smash = false;
         countdown = false;
         started = true;
+        buttonsContainer.gameObject.SetActive(true);
         buttonsCoroutine = StartCoroutine(GenerateButtons());
     }
 
@@ -50,6 +51,7 @@ public class OnScreenButtonManager : MonoBehaviour
     {
         if (buttonsCoroutine != null)
             StopCoroutine(buttonsCoroutine);
+        buttonsContainer.gameObject.SetActive(false);
     }
 
     private IEnumerator GenerateButtons()
