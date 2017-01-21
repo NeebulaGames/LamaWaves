@@ -15,7 +15,6 @@ public class GameplayManager : MonoBehaviour
         gameAudio = GetComponent<AudioManager>();
         buttonsManager = GetComponent<OnScreenButtonManager>();
         buttonsManager.enabled = true;
-        SteamAPI.Init();
     }
 
     void Start()
@@ -36,10 +35,5 @@ public class GameplayManager : MonoBehaviour
         buttonsManager.enabled = false;
         gameAudio.enabled = false;
         // TODO: Call GameManager here to end game
-    }
-
-    public void OnDestroy()
-    {
-        SteamAPI.Shutdown();
     }
 }
