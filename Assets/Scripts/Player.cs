@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("A_" + (inputNumber + 1)))
         {
+            Debug.Log("Player " + inputNumber + " A");
             mMainCollider.GetScore(playerNumber, OnScreenButtonManager.ColliderType.Button_A);
         }
         else if (Input.GetButtonDown("B_" + (inputNumber + 1)))
