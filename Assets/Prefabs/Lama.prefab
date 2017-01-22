@@ -259,6 +259,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2fad5600df99e4b5ab1a3dc5b3fd43fc, type: 3}
   - {fileID: 21300000, guid: 0d129518f2a1b4520b2c8e8840aae000, type: 3}
   ratingMessageObject: {fileID: 0}
+  numLama: 0
 --- !u!114 &114950962389144714
 MonoBehaviour:
   m_ObjectHideFlags: 1
