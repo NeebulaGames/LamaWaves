@@ -1,9 +1,8 @@
 ﻿using LamaWaves.Scripts;
 using UnityEngine;
 
-public class MainCollider : MonoBehaviour {
-
-    public bool colliding;
+public class MainCollider : MonoBehaviour
+{
     private Collider2D collidingObject;
     private PlayerManager mPlayerManager;
 
@@ -28,22 +27,21 @@ public class MainCollider : MonoBehaviour {
     {
         ScoreType ret = ScoreType.Miss;
 
-        if (colliding && !hitted_by_player[player_number])
+        if (collidingObject != null && !hitted_by_player[player_number])
         {
             hitted_by_player[player_number] = true;
-            //Debug.Log(hitted_by_player[player_number]);
             //Debug.Log(collidingObject.GetComponent<MovingButton>().buttonType);
-            if(button_type == collidingObject.GetComponent<MovingButton>().buttonType)
+            if (button_type == collidingObject.GetComponent<MovingButton>().buttonType)
             {
-                float collidingPercentatge = BoundsContainedPercentage(collidingObject.bounds, mCollider2D.bounds);
-
-                if (collidingPercentatge < 0.2)
+                int collidingPercentatge = Mathf.FloorToInt(BoundsContainedPercentage(collidingObject.bounds, mCollider2D.bounds) * 100);
+                //Debug.Log("Percentage: " + collidingPercentatge);
+                if (collidingPercentatge < 20)
                     ret = ScoreType.Bad;
-                else if (collidingPercentatge < 0.5)
+                else if (collidingPercentatge < 60)
                     ret = ScoreType.Ok;
-                else if (collidingPercentatge < 0.7)
+                else if (collidingPercentatge < 90)
                     ret = ScoreType.Good;
-                else if (collidingPercentatge < 0.9)
+                else
                     ret = ScoreType.Perfect;
             }
         }
@@ -58,25 +56,31 @@ public class MainCollider : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (collidingObject != null)
+        {
+            for (int i = 0; i < mPlayerManager.PlayerCount(); i++)
+            {
+                if (!hitted_by_player[i])
+                    mPlayerManager.Score(i, ScoreType.Miss);
+            }
+        }
+
         hitted_by_player = new bool[] { false, false, false, false };
-        colliding = true;
         collidingObject = other;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        for (int i = 0; i < mPlayerManager.PlayerCount(); i++)
-        {
-            if (!hitted_by_player[i])
-                mPlayerManager.Score(i, ScoreType.Miss);
-        }
-
         if (other == collidingObject)
         {
-            
+            for (int i = 0; i < mPlayerManager.PlayerCount(); i++)
+            {
+                if (!hitted_by_player[i])
+                    mPlayerManager.Score(i, ScoreType.Miss);
+            }
+
             collidingObject = null;
             hitted_by_player = new bool[] { false, false, false, false };
         }
-        colliding = false;
     }
 }

@@ -80,10 +80,10 @@ namespace LamaWaves.Scripts
 
         public void Score(int player, ScoreType type)
         {
-            ShowLamaResult(player, type);
-
             if (mGameplayManager.smashMode)
                 type = ScoreType.Good;
+
+            ShowLamaResult(player, type);
 
             if (gauge[player] >= 1000)
             {
