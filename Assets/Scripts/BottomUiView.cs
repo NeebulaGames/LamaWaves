@@ -59,19 +59,20 @@ public class BottomUiView : MonoBehaviour {
 
 	public void SetGauge(int player, int gaugue)
 	{
-		switch (player)
+        float fillAmaount = (float)gaugue / 1000f;
+        switch (player)
 		{
 			case 0:
-				redScoreFull.fillAmount = gaugue/1000;
+				redScoreFull.fillAmount = fillAmaount;
 				break;
 			case 1:
-				yellowScoreFull.fillAmount = gaugue/1000;
+				yellowScoreFull.fillAmount = fillAmaount;
 				break;
 			case 2:
-				greenScoreFull.fillAmount = gaugue/1000;
+				greenScoreFull.fillAmount = fillAmaount;
 				break;
 			case 3:
-				blueScoreFull.fillAmount = gaugue/1000;
+				blueScoreFull.fillAmount = fillAmaount;
 				break;
 		}
 	}

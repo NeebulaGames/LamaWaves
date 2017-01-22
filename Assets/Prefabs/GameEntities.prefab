@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 114234619753864402}
   - component: {fileID: 114493126509269352}
   - component: {fileID: 114519293747077106}
-  - component: {fileID: 114595511524074580}
   m_Layer: 0
   m_Name: LamaBlue
   m_TagString: Untagged
@@ -1368,7 +1367,6 @@ GameObject:
   - component: {fileID: 114326587944640250}
   - component: {fileID: 114891514781229200}
   - component: {fileID: 114956793141794258}
-  - component: {fileID: 114835039887605302}
   m_Layer: 0
   m_Name: LamaGreen
   m_TagString: Untagged
@@ -3862,20 +3860,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: MISSES
---- !u!114 &114595511524074580
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1109485137495624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76e356f662f6794c962b468a910c04f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputNumber: 0
-  playerNumber: 0
-  mainCollider: {fileID: 114895061703173632}
 --- !u!114 &114607093837892710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4560,20 +4544,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114835039887605302
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1848045330114812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76e356f662f6794c962b468a910c04f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputNumber: 0
-  playerNumber: 0
-  mainCollider: {fileID: 114895061703173632}
 --- !u!114 &114848642500986630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -26993,7 +26963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -282.82}
+  m_AnchoredPosition: {x: 0, y: -283}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224313837978013424
