@@ -30,13 +30,8 @@ namespace LamaWaves.Scripts
 			//StartCoroutine(mGameplayManager.CountdownStartGame()); //just for test
 		}
 
-	public void Score(int player, ScoreType type)
-	{
-		ShowLamaResult(player, type);
-
-		public void Score(int player, ScoreType type)
-		{
-
+	    public void Score(int player, ScoreType type)
+	    {
 			ShowLamaResult(player, type);
 
 			if (mGameplayManager.smashMode)
