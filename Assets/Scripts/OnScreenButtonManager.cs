@@ -130,7 +130,7 @@ public class OnScreenButtonManager : MonoBehaviour
 
     public void Update()
     {
-        if (started && !smash && audioManager.TimeUntilNextStage() <= 10f)
+        if (started && !countdown && audioManager.TimeUntilNextStage() <= 10f)
         {
             smash = gameplay.smashMode;
             StopCoroutine(buttonsCoroutine);

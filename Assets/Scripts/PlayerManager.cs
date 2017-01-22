@@ -30,10 +30,9 @@ namespace LamaWaves.Scripts
 			//StartCoroutine(mGameplayManager.CountdownStartGame()); //just for test
 		}
 
-		void Update()
-		{
-			//Debug.Log("Player: " + 1 + " - Score: " + scores[0] + " - Gauge: " + gauge[0]);
-		}
+	public void Score(int player, ScoreType type)
+	{
+		ShowLamaResult(player, type);
 
 		public void Score(int player, ScoreType type)
 		{
