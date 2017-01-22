@@ -9,6 +9,7 @@ public class LamaGameManager : MonoBehaviour
     private PlayerSelectorManager selector;
     GameplayManager gameplay;
     private EndMenuManager endMenu;
+    public AudioSource source;
 
     void Awake()
     {
@@ -16,6 +17,8 @@ public class LamaGameManager : MonoBehaviour
         selector = GetComponent<PlayerSelectorManager>();
         gameplay = GetComponent<GameplayManager>();
         endMenu = GetComponent<EndMenuManager>();
+
+        source.Play();
 
         gameplay.enabled = false;
     }
@@ -29,6 +32,8 @@ public class LamaGameManager : MonoBehaviour
 
     public void StartGame()
     {
+        if(source.isPlaying)
+            source.Stop();
         selector.enabled = false;
         gameplay.enabled = true;
 
@@ -37,6 +42,7 @@ public class LamaGameManager : MonoBehaviour
 
     public void EndGame()
     {
+        source.Play();
         gameplay.enabled = false;
         endMenu.enabled = true;
 

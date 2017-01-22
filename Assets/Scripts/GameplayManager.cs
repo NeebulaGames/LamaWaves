@@ -74,6 +74,7 @@ public class GameplayManager : MonoBehaviour
 
     void OnDisable()
     {
+        gameAudio.Stop();
         buttonsManager.enabled = false;
         gameAudio.enabled = false;
     }

@@ -75,6 +75,11 @@ public class AudioManager : MonoBehaviour
         yield return null;
     }
 
+    public void Stop()
+    {
+        source.Stop();
+    }
+
     private void createDummyStages()
     {
         audioStages = new Queue<AudioStage>();
