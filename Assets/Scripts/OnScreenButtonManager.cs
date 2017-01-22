@@ -34,6 +34,8 @@ public class OnScreenButtonManager : MonoBehaviour
 
     private MovingButton baseButton;
 
+    public GameObject button_smasher;
+
     void Awake()
     {
         started = false;
@@ -143,6 +145,11 @@ public class OnScreenButtonManager : MonoBehaviour
 
     public void Update()
     {
+        if (gameplay.smashMode)
+            button_smasher.SetActive(true);
+        else
+            button_smasher.SetActive(false);
+
         if (started && !countdown && audioManager.TimeUntilNextStage() <= 10f)
         {
             smash = gameplay.smashMode;
