@@ -21,10 +21,10 @@ public class MovingButton : MonoBehaviour
         switch (colliderType)
         {
             case OnScreenButtonManager.ColliderType.Button_A:
-                image.sprite = Resources.Load<Sprite>("a_button");
+                image.sprite = Resources.Load<Sprite>("ui_music_bar_button_a");
                 break;
             case OnScreenButtonManager.ColliderType.Button_B:
-                image.sprite = Resources.Load<Sprite>("b_button");
+                image.sprite = Resources.Load<Sprite>("ui_music_bar_button_b");
                 break;
         }
     }
