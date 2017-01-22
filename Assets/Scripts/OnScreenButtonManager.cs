@@ -28,13 +28,19 @@ public class OnScreenButtonManager : MonoBehaviour
     private float speed;
     private float radixTime;
     private bool countdown = false;
-    private bool smash = false;
+    public bool smash = false;
     private Coroutine buttonsCoroutine;
     private RectTransform canvasRect;
 
     private MovingButton baseButton;
 
     public GameObject button_smasher;
+
+	public Light directionalLight;
+	public Camera mainCamera;
+
+	private Sequence lightSequence;
+	private Sequence bkgSequence;
 
     void Awake()
     {
@@ -46,6 +52,9 @@ public class OnScreenButtonManager : MonoBehaviour
         radixTime = speed / 50f;
 
         baseButton = Resources.Load<MovingButton>("MovingButton");
+
+		lightSequence = DOTween.Sequence().Pause();
+		bkgSequence = DOTween.Sequence().Pause();
     }
 
     public void Init()
@@ -56,6 +65,18 @@ public class OnScreenButtonManager : MonoBehaviour
         buttonsContainer.gameObject.SetActive(true);
         buttonsCoroutine = StartCoroutine(GenerateButtons());
 		mainCollider.gameObject.SetActive(true);
+
+		lightSequence.Append(directionalLight.DOColor(Color.red, 0.25f));
+		lightSequence.Append(directionalLight.DOColor(Color.yellow, 0.25f));
+		lightSequence.Append(directionalLight.DOColor(Color.green, 0.25f));
+		lightSequence.Append(directionalLight.DOColor(Color.blue, 0.25f));
+		lightSequence.OnComplete(() => ChangeLightColor());
+
+		bkgSequence.Append(mainCamera.DOColor(Color.red, 0.25f));
+		bkgSequence.Append(mainCamera.DOColor(Color.yellow, 0.25f));
+		bkgSequence.Append(mainCamera.DOColor(Color.green, 0.25f));
+		bkgSequence.Append(mainCamera.DOColor(Color.blue, 0.25f));
+		bkgSequence.OnComplete(() => ChangeBackgroundColor());
     }
 
     void OnDisable()
@@ -138,6 +159,11 @@ public class OnScreenButtonManager : MonoBehaviour
         instance.transform.localPosition = position;
         yield return new WaitForSeconds(1.4f);
 
+		lightSequence.Restart();
+		lightSequence.Play();
+		bkgSequence.Restart();
+		bkgSequence.Play();
+
         //yield return new WaitForSeconds(10f);
         
         countdown = false;
@@ -163,5 +189,33 @@ public class OnScreenButtonManager : MonoBehaviour
             smash = false;
             buttonsCoroutine = StartCoroutine(GenerateButtons());
         }
+
+		if (!gameplay.smashMode)
+		{
+			lightSequence.Pause();
+			bkgSequence.Pause();
+		}
     }
+
+	private void ChangeLightColor()
+	{
+		if (gameplay.smashMode)
+		{
+			lightSequence.Restart();
+			lightSequence.Play();
+		}
+		else
+			directionalLight.DOColor(new Color(255f / 256f, 244f / 256f, 214f / 256f, 255f / 255f), 0.5f);
+	}
+
+	private void ChangeBackgroundColor()
+	{
+		if (gameplay.smashMode)
+		{
+			bkgSequence.Restart();
+			bkgSequence.Play();
+		}
+		else
+			mainCamera.DOColor(new Color(255f / 256f, 195f / 256f, 0f, 0f), 0.5f);
+	}
 }
