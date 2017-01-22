@@ -21,6 +21,8 @@ namespace LamaWaves.Scripts
         public Player[] playerList;
 
         public int[] scores = { 0, 0, 0, 0 };
+		public int[] misses = { 0, 0, 0, 0 };
+		public int[] hits = { 0, 0, 0, 0 };
         private int[] gauge = { 0, 0, 0, 0 };
         private GameplayManager mGameplayManager;
         public int gauge_bonus = 2;
@@ -38,6 +40,8 @@ namespace LamaWaves.Scripts
             lamaContainer.SetActive(true);
             scores = new [] { 0, 0, 0, 0 };
             gauge = new[] { 0, 0, 0, 0 };
+			hits = new[] { 0, 0, 0, 0 };
+			misses = new[] { 0, 0, 0, 0 };
             lamaContainer.transform.DOLocalMoveY(-15f, 0f);
         }
 
@@ -75,7 +79,7 @@ namespace LamaWaves.Scripts
             playerList = new Player[players.Count];
 
             lamaContainer.transform.DOKill();
-            lamaContainer.transform.DOLocalMoveY(-4f, 5f).OnComplete(() =>
+            lamaContainer.transform.DOLocalMoveY(-3f, 5f).OnComplete(() =>
             {
                 foreach (var player in playerList)
                 {
@@ -125,6 +129,11 @@ namespace LamaWaves.Scripts
 
             bottomUiView.SetScoreText(player, scores[player]);
             bottomUiView.SetGauge(player, gauge[player]);
+
+			if (type == ScoreType.Miss)
+				misses[player]++;
+			else
+				hits[player]++;
 
             //Debug.Log("Player: " + player + " - Score: " + scores[player] + " - Gauge: " + gauge[player]);
         }

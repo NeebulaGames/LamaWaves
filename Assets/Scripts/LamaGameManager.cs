@@ -41,7 +41,7 @@ public class LamaGameManager : MonoBehaviour
         endMenu.enabled = true;
 
         PlayerManager pm = gameplay.playerManager;
-        endMenu.SetInfo(pm.playerList, pm.scores, null, null, null);
+		endMenu.SetInfo(pm.playerList, pm.scores, pm.misses, pm.hits);
     }
 
     public void EndScores()
