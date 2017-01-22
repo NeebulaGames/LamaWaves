@@ -81,26 +81,33 @@ public class GameplayManager : MonoBehaviour
         GameObject instance;
         GameObject canvas = GameObject.Find("Canvas");
         Vector3 position = new Vector3(0f, 250f, 0f);
+        Vector3 scale = new Vector3(1f, 1f, 0f);
        
         instance = Instantiate(countdown3, canvas.transform);
         instance.transform.localPosition = position;
+        instance.transform.localScale = scale;
         instance.GetComponent<Image>().CrossFadeAlpha(0, 1.4f, false);
         instance.transform.DOScale(2, 1.4f).OnComplete(() => Destroy(instance));
         yield return new WaitForSeconds(1.4f);
 
         instance = Instantiate(countdown2, canvas.transform);
         instance.transform.localPosition = position;
+        instance.transform.localScale = scale;
         instance.GetComponent<Image>().CrossFadeAlpha(0, 1.4f, false);
         instance.transform.DOScale(2, 1.4f).OnComplete(() => Destroy(instance));
         yield return new WaitForSeconds(1.4f);
 
         instance = Instantiate(countdown1, canvas.transform);
+        instance.transform.localPosition = position;
+        instance.transform.localScale = scale;
         instance.GetComponent<Image>().CrossFadeAlpha(0, 1.4f, false);
         instance.transform.DOScale(2, 1.4f).OnComplete(() => Destroy(instance));
         instance.transform.localPosition = position;
         yield return new WaitForSeconds(1.4f);
 
         instance = Instantiate(countdownGO, canvas.transform);
+        instance.transform.localPosition = position;
+        instance.transform.localScale = scale;
         instance.GetComponent<Image>().CrossFadeAlpha(0, 1.4f, false);
         instance.transform.DOScale(2, 1.4f).OnComplete(() => Destroy(instance));
         instance.transform.localPosition = position;

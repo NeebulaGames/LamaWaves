@@ -1855,11 +1855,11 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashMode: 0
   numberOfPlayers: 0
-  inGameUI: {fileID: 1149885214889936}
+  inGameUI: {fileID: 0}
   countdown3: {fileID: 1241885248613012, guid: e93b9e482d4e59b4fbbb12bdb3ab670d, type: 2}
   countdown2: {fileID: 1186091184662784, guid: 00cd9e1a2cadc90458f6d5a9a5bfaa10, type: 2}
   countdown1: {fileID: 1799965697492386, guid: 4d12e2f25a6331149bf32387f1bd6e80, type: 2}
@@ -2106,7 +2106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c611d301adf0e1645a584e3e4b075393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomUiView: {fileID: 114042830594995934}
+  bottomUiView: {fileID: 0}
   gauge_bonus: 2
   lamaResultsControllers:
   - {fileID: 114811223026391922}
