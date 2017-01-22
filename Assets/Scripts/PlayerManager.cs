@@ -57,7 +57,21 @@ namespace LamaWaves.Scripts
 
         public void InitPlayers(Dictionary<int, int> players)
         {
-            float first = ((players.Count % 2) == 0 ? -2.5f : -4) * (players.Count - 1);
+            float first = 0f;
+
+            switch (players.Count)
+            {
+                case 2:
+                    first = -2.5f;
+                    break;
+                case 3:
+                    first = -4f;
+                    break;
+                case 4:
+                    first = -6.5f;
+                    break;
+            }
+
             playerList = new Player[players.Count];
 
             lamaContainer.transform.DOKill();
