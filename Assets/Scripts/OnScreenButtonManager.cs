@@ -15,6 +15,7 @@ public class OnScreenButtonManager : MonoBehaviour
     public GameObject countdown2;
     public GameObject countdown1;
     public GameObject countdownSmash;
+    public GameObject countdownRelax;
 
     public Transform buttonsContainer;
 	public MainCollider mainCollider;
@@ -91,6 +92,7 @@ public class OnScreenButtonManager : MonoBehaviour
         return btn;
     }
 
+   
     private IEnumerator Countdown()
     {
         yield return new WaitForSeconds(4.8f);
@@ -122,7 +124,11 @@ public class OnScreenButtonManager : MonoBehaviour
         instance.transform.localPosition = position;
         yield return new WaitForSeconds(1.4f);
 
-        instance = Instantiate(countdownSmash, canvas.transform);
+        if(smash)
+            instance = Instantiate(countdownRelax, canvas.transform);
+        else
+            instance = Instantiate(countdownSmash, canvas.transform);
+
         instance.transform.localPosition = position;
         instance.transform.localScale = scale;
         instance.GetComponent<Image>().CrossFadeAlpha(0, 1.4f, false);

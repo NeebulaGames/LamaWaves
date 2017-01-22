@@ -7697,6 +7697,8 @@ MonoBehaviour:
   countdown1: {fileID: 1799965697492386, guid: 4d12e2f25a6331149bf32387f1bd6e80, type: 2}
   countdownSmash: {fileID: 1110520766410330, guid: bb97d9417007b314ba06ea249a990794,
     type: 2}
+  countdownRelax: {fileID: 1110520766410330, guid: bf7050b1eb273e745a615e35071229d8,
+    type: 2}
   buttonsContainer: {fileID: 224795873921495478}
   mainCollider: {fileID: 114895061703173632}
 --- !u!114 &114905840592065172
