@@ -180,6 +180,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3a37a39dfbac4151b3a248f51d859af, type: 2}
   m_IsPrefabParent: 0
+--- !u!108 &789037965 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108239729873950624, guid: b3a37a39dfbac4151b3a248f51d859af,
+    type: 2}
+  m_PrefabInternal: {fileID: 772388340}
 --- !u!1001 &910016438
 Prefab:
   m_ObjectHideFlags: 0
@@ -281,6 +286,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114901064344052152, guid: 5ae4df913afaaa145a51a7d4bdd6cfe9,
+        type: 2}
+      propertyPath: directionalLight
+      value: 
+      objectReference: {fileID: 789037965}
+    - target: {fileID: 114901064344052152, guid: 5ae4df913afaaa145a51a7d4bdd6cfe9,
+        type: 2}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 14468878}
     - target: {fileID: 223578545436537074, guid: 5ae4df913afaaa145a51a7d4bdd6cfe9,
         type: 2}
       propertyPath: m_Camera

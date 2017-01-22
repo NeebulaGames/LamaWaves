@@ -7885,8 +7885,10 @@ MonoBehaviour:
     type: 2}
   buttonsContainer: {fileID: 224795873921495478}
   mainCollider: {fileID: 114895061703173632}
+  smash: 0
   button_smasher: {fileID: 1034772738105090}
   directionalLight: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!114 &114905840592065172
 MonoBehaviour:
   m_ObjectHideFlags: 1
