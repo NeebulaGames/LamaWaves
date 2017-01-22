@@ -7,9 +7,14 @@ public class Player : MonoBehaviour
 
     public MainCollider mainCollider;
     private WaveAnimation animation;
+    private GameplayManager mGameplayManager;
+
+    private Animator mAnimator;
     
     void Start () {
         animation = GetComponent<WaveAnimation>();
+        mAnimator = GetComponent<Animator>();
+        mGameplayManager = FindObjectOfType<GameplayManager>();
     }
 
     public void ToggleAnimation(bool status)
@@ -18,6 +23,7 @@ public class Player : MonoBehaviour
     }
     
     void Update () {
+        mAnimator.SetBool("smashMode", mGameplayManager.smashMode);
 
         if (Input.GetButtonDown("A_" + (inputNumber + 1)))
         {
