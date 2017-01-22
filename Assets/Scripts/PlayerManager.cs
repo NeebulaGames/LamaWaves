@@ -75,7 +75,7 @@ namespace LamaWaves.Scripts
             playerList = new Player[players.Count];
 
             lamaContainer.transform.DOKill();
-            lamaContainer.transform.DOLocalMoveY(-4f, 5f).OnComplete(() =>
+            lamaContainer.transform.DOLocalMoveY(-3f, 5f).OnComplete(() =>
             {
                 foreach (var player in playerList)
                 {
