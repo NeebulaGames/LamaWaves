@@ -48,6 +48,10 @@ namespace LamaWaves.Scripts
             {
                 player.ToggleAnimation(false);
             }
+
+            foreach (Transform score in bottomUiView.scoreContainers)
+                score.gameObject.SetActive(false);
+
             lamaContainer.SetActive(false);
         }
 
@@ -68,7 +72,6 @@ namespace LamaWaves.Scripts
             foreach (KeyValuePair<int, int> val in players)
             {
                 LamaResultsController controller = lamaResultsControllers[val.Value]; // TODO: place controller
-
                 Player player = controller.GetComponent<Player>();
                 playerList[val.Value] = player;
                 Vector3 position = player.transform.localPosition;
@@ -77,6 +80,10 @@ namespace LamaWaves.Scripts
                 player.playerNumber = val.Value;
                 player.inputNumber = val.Key;
                 player.gameObject.SetActive(true);
+
+                Transform score = bottomUiView.scoreContainers[val.Value];
+                score.gameObject.SetActive(true);
+                score.transform.DOMoveX(position.x, 0f);
             }
         }
 

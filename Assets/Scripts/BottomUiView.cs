@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BottomUiView : MonoBehaviour {
+public class BottomUiView : MonoBehaviour
+{
+    public Transform[] scoreContainers;
 
 	Image redScoreFull;
 	Image yellowScoreFull;
@@ -17,7 +19,13 @@ public class BottomUiView : MonoBehaviour {
 
 	void Awake()
 	{
-		redScoreFull = transform.Find("RedScore_Empty/RedScore_Full").GetComponent<Image>();
+	    scoreContainers = new[]
+	    {
+	        transform.Find("RedScore_Empty"), transform.Find("BlueScore_Empty"), transform.Find("YellowScore_Empty"),
+	        transform.Find("GreenScore_Empty")
+	    };
+
+        redScoreFull = transform.Find("RedScore_Empty/RedScore_Full").GetComponent<Image>();
 		yellowScoreFull = transform.Find("YellowScore_Empty/YellowScore_Full").GetComponent<Image>();
 		greenScoreFull = transform.Find("GreenScore_Empty/GreenScore_Full").GetComponent<Image>();
 		blueScoreFull = transform.Find("BlueScore_Empty/BlueScore_Full").GetComponent<Image>();
