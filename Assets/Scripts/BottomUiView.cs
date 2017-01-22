@@ -21,8 +21,8 @@ public class BottomUiView : MonoBehaviour
 	{
 	    scoreContainers = new[]
 	    {
-	        transform.Find("RedScore_Empty"), transform.Find("BlueScore_Empty"), transform.Find("YellowScore_Empty"),
-	        transform.Find("GreenScore_Empty")
+	        transform.Find("RedScore_Empty"), transform.Find("YellowScore_Empty"),
+	        transform.Find("GreenScore_Empty"), transform.Find("BlueScore_Empty")
 	    };
 
         redScoreFull = transform.Find("RedScore_Empty/RedScore_Full").GetComponent<Image>();
