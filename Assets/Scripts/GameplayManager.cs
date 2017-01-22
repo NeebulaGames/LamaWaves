@@ -10,6 +10,8 @@ public class GameplayManager : MonoBehaviour
     public bool smashMode = false;
     public int numberOfPlayers;
 
+	public GameObject inGameUI;
+
     public GameObject countdown3;
     public GameObject countdown2;
     public GameObject countdown1;
@@ -48,6 +50,8 @@ public class GameplayManager : MonoBehaviour
         StartCoroutine(CountdownStartGame());
         //CRIDA COROUTINE per llançar GameReady
 		playerManager.enabled = true;
+
+		inGameUI.SetActive(true);
     }
 
     public void GameReady()
