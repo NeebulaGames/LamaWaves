@@ -10,7 +10,6 @@ public class EndMenuView : MonoBehaviour {
 	private Text[] _scoreText = new Text[4];
 	private Text[] _missesText = new Text[4];
 	private Text[] _hitsText = new Text[4];
-	private Text[] _tapsText = new Text[4];
 
 	void Awake()
 	{
@@ -33,11 +32,6 @@ public class EndMenuView : MonoBehaviour {
 		_hitsText[1] = transform.Find("Score_Yellow/HitsText").GetComponent<Text>();
 		_hitsText[2] = transform.Find("Score_Green/HitsText").GetComponent<Text>();
 		_hitsText[3] = transform.Find("Score_Blue/HitsText").GetComponent<Text>();
-
-		_tapsText[0] = transform.Find("Score_Red/TapsText").GetComponent<Text>();
-		_tapsText[1] = transform.Find("Score_Yellow/TapsText").GetComponent<Text>();
-		_tapsText[2] = transform.Find("Score_Green/TapsText").GetComponent<Text>();
-		_tapsText[3] = transform.Find("Score_Blue/TapsText").GetComponent<Text>();
 
 		foreach (GameObject scoreWall in _scoreWalls)
 		{
@@ -68,11 +62,6 @@ public class EndMenuView : MonoBehaviour {
 	public void SetHits(int player, int hits)
 	{
 		_hitsText[player].text = hits.ToString();
-	}
-
-	public void SetTaps(int player, int taps)
-	{
-		_tapsText[player].text = taps.ToString();
 	}
 
 	public void ShowScoreWall(int player, bool winner, Vector3 absPos)

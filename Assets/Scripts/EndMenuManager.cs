@@ -21,7 +21,7 @@ public class EndMenuManager : MonoBehaviour
         endView.transform.position = originalPosition;
     }
 
-    public void SetInfo(Player[] players, int[] score, int[] gauge, int[] misses, int[] hits)
+    public void SetInfo(Player[] players, int[] score, int[] misses, int[] hits)
     {
         int winner = 0;
         int max = score[0];
@@ -35,9 +35,8 @@ public class EndMenuManager : MonoBehaviour
             }
 
             endView.SetScore(i, score[i]);
-            //endView.SetMisses(i, misses[i]);
-            //endView.SetHits(i, hits[i]);
-            //endView.SetTaps(i, hits[i]);
+            endView.SetMisses(i, misses[i]);
+            endView.SetHits(i, hits[i]);
         }
 
         for (int i = 0; i < players.Length; ++i)
