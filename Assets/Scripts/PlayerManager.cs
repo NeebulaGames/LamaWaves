@@ -103,6 +103,8 @@ namespace LamaWaves.Scripts
                 score.gameObject.SetActive(true);
                 score.transform.DOMoveX(position.x, 0f);
             }
+
+            bottomUiView.ResetScore();
         }
 
         public void Score(int player, ScoreType type)

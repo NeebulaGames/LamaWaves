@@ -65,6 +65,14 @@ public class BottomUiView : MonoBehaviour
 		}
 	}
 
+    public void ResetScore()
+    {
+        redScoreText.text = 0.ToString("000000");
+		yellowScoreText.text = 0.ToString("000000");
+		greenScoreText.text = 0.ToString("000000");
+		blueScoreText.text = 0.ToString("000000");
+    }
+
 	public void SetGauge(int player, int gaugue)
 	{
         float fillAmaount = (float)gaugue / 1000f;
