@@ -723,13 +723,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224216438350127844}
+  - component: {fileID: 114177708152656582}
   m_Layer: 0
   m_Name: EndMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1487094025082428
 GameObject:
   m_ObjectHideFlags: 1
@@ -1408,7 +1409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1889853932117530
 GameObject:
   m_ObjectHideFlags: 1
@@ -2880,6 +2881,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 000000
+--- !u!114 &114177708152656582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1485978745599964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121cfa3ef1a9a4b33ad751079052080e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114182564834570456
 MonoBehaviour:
   m_ObjectHideFlags: 1
