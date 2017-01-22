@@ -110,5 +110,10 @@ namespace LamaWaves.Scripts
         {
             lamaResultsControllers[lamaPlayer].ShowMessage(resultType);
         }
+
+        public int PlayerCount()
+        {
+            return playerList.Length;
+        }
     }
 }

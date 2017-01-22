@@ -47,13 +47,12 @@ public class GameplayManager : MonoBehaviour
         gameAudio.PlaySound("HighFive", audioDelay);
         smashMode = false;
         gameAudio.enabled = true;
+        inGameUI.SetActive(true);
         //TOOD: playercotroller preare players on screen
         StartCoroutine(CountdownStartGame());
         //CRIDA COROUTINE per llançar GameReady
         playerManager.enabled = true;
         playerManager.InitPlayers(players);
-
-        inGameUI.SetActive(true);
     }
 
     public void GameReady()

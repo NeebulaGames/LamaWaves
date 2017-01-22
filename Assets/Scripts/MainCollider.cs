@@ -65,7 +65,7 @@ public class MainCollider : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < mPlayerManager.PlayerCount(); i++)
         {
             if (!hitted_by_player[i])
                 mPlayerManager.Score(i, ScoreType.Miss);
