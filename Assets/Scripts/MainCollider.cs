@@ -25,27 +25,30 @@ public class MainCollider : MonoBehaviour
 
     public void GetScore(int player_number, OnScreenButtonManager.ColliderType button_type)
     {
-        ScoreType ret = ScoreType.Miss;
-
-        if (collidingObject != null && !hitted_by_player[player_number])
+        if (mPlayerManager != null)
         {
-            hitted_by_player[player_number] = true;
-            //Debug.Log(collidingObject.GetComponent<MovingButton>().buttonType);
-            if (button_type == collidingObject.GetComponent<MovingButton>().buttonType)
+            ScoreType ret = ScoreType.Miss;
+
+            if (collidingObject != null && !hitted_by_player[player_number])
             {
-                int collidingPercentatge = Mathf.FloorToInt(BoundsContainedPercentage(collidingObject.bounds, mCollider2D.bounds) * 100);
-                //Debug.Log("Percentage: " + collidingPercentatge);
-                if (collidingPercentatge < 20)
-                    ret = ScoreType.Bad;
-                else if (collidingPercentatge < 60)
-                    ret = ScoreType.Ok;
-                else if (collidingPercentatge < 90)
-                    ret = ScoreType.Good;
-                else
-                    ret = ScoreType.Perfect;
+                hitted_by_player[player_number] = true;
+                //Debug.Log(collidingObject.GetComponent<MovingButton>().buttonType);
+                if (button_type == collidingObject.GetComponent<MovingButton>().buttonType)
+                {
+                    int collidingPercentatge = Mathf.FloorToInt(BoundsContainedPercentage(collidingObject.bounds, mCollider2D.bounds) * 100);
+                    //Debug.Log("Percentage: " + collidingPercentatge);
+                    if (collidingPercentatge < 20)
+                        ret = ScoreType.Bad;
+                    else if (collidingPercentatge < 60)
+                        ret = ScoreType.Ok;
+                    else if (collidingPercentatge < 90)
+                        ret = ScoreType.Good;
+                    else
+                        ret = ScoreType.Perfect;
+                }
             }
+            mPlayerManager.Score(player_number, ret);
         }
-        mPlayerManager.Score(player_number, ret);
     }
 
     private float BoundsContainedPercentage(Bounds obj, Bounds region)
