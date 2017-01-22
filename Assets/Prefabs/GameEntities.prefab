@@ -1030,7 +1030,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224489178969504776}
   - component: {fileID: 114042830594995934}
-  - component: {fileID: 114654459874594924}
   m_Layer: 0
   m_Name: BottomUI
   m_TagString: Untagged
@@ -4115,17 +4114,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114654459874594924
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1679832936032166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9bf8efecc48a4729ab8ee7ee565b5a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114671841572681098
 MonoBehaviour:
   m_ObjectHideFlags: 1
