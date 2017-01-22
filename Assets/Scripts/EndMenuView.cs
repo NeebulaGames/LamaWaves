@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -77,24 +78,29 @@ public class EndMenuView : MonoBehaviour {
 	public void ShowScoreWall(int player, bool winner, Vector3 absPos)
 	{
 		_scoreWalls[player].SetActive(true);
-		if (winner)
-		{
-			switch (player)
-			{
-				case 0:
-					_scoreWalls[player].transform.Find("Winner_Red").gameObject.SetActive(true);
-					break;
-				case 1:
-					_scoreWalls[player].transform.Find("Winner_Yellow").gameObject.SetActive(true);
-					break;
-				case 2:
-					_scoreWalls[player].transform.Find("Winner_Green").gameObject.SetActive(true);
-					break;
-				case 3:
-					_scoreWalls[player].transform.Find("Winner_Blue").gameObject.SetActive(true);
-					break;
-			}
-		}
-		_scoreWalls[player].transform.position = absPos;
+	    if (winner)
+	    {
+	        switch (player)
+	        {
+	            case 0:
+	                _scoreWalls[player].transform.Find("Winner_Red").gameObject.SetActive(true);
+	                break;
+	            case 1:
+	                _scoreWalls[player].transform.Find("Winner_Yellow").gameObject.SetActive(true);
+	                break;
+	            case 2:
+	                _scoreWalls[player].transform.Find("Winner_Green").gameObject.SetActive(true);
+	                break;
+	            case 3:
+	                _scoreWalls[player].transform.Find("Winner_Blue").gameObject.SetActive(true);
+	                break;
+	        }
+	    }
+
+	    Transform wall = _scoreWalls[player].transform;
+	    absPos.z = wall.position.z;
+	    absPos.y = wall.position.y;
+        wall.position = absPos;
+	    //wall.DOLocalMoveZ(0f, 0f);
 	}
 }

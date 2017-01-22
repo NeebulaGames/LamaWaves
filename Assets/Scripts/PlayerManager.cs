@@ -18,11 +18,11 @@ namespace LamaWaves.Scripts
     {
         public BottomUiView bottomUiView;
         public GameObject lamaContainer;
+        public Player[] playerList;
 
-        private int[] scores = { 0, 0, 0, 0 };
+        public int[] scores = { 0, 0, 0, 0 };
         private int[] gauge = { 0, 0, 0, 0 };
         private GameplayManager mGameplayManager;
-        private Player[] playerList;
         public int gauge_bonus = 2;
 
         public LamaResultsController[] lamaResultsControllers = new LamaResultsController[4];

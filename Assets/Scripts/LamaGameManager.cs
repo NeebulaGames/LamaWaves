@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using LamaWaves.Scripts;
 using UnityEngine;
 
 public class LamaGameManager : MonoBehaviour
@@ -7,12 +8,14 @@ public class LamaGameManager : MonoBehaviour
     MainMenuManager mainMenu;
     private PlayerSelectorManager selector;
     GameplayManager gameplay;
+    private EndMenuManager endMenu;
 
     void Awake()
     {
         mainMenu = GetComponent<MainMenuManager>();
         selector = GetComponent<PlayerSelectorManager>();
         gameplay = GetComponent<GameplayManager>();
+        endMenu = GetComponent<EndMenuManager>();
 
         gameplay.enabled = false;
     }
@@ -35,12 +38,15 @@ public class LamaGameManager : MonoBehaviour
     public void EndGame()
     {
         gameplay.enabled = false;
+        endMenu.enabled = true;
 
-        // TODO: Activate endgame with scores
+        PlayerManager pm = gameplay.playerManager;
+        endMenu.SetInfo(pm.playerList, pm.scores, null, null, null);
     }
 
     public void EndScores()
     {
+        endMenu.enabled = false;
         mainMenu.enabled = true;
     }
 

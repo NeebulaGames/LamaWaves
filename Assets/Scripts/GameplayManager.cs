@@ -12,6 +12,7 @@ public class GameplayManager : MonoBehaviour
     public int numberOfPlayers;
 
     public GameObject inGameUI;
+    public PlayerManager playerManager;
 
     public GameObject countdown3;
     public GameObject countdown2;
@@ -21,7 +22,6 @@ public class GameplayManager : MonoBehaviour
     private LamaGameManager gameManager;
     private AudioManager gameAudio;
     private OnScreenButtonManager buttonsManager;
-    private PlayerManager playerManager;
 
     void Awake()
     {
@@ -67,6 +67,7 @@ public class GameplayManager : MonoBehaviour
         buttonsManager.enabled = false;
         gameAudio.enabled = false;
         playerManager.enabled = false;
+        inGameUI.SetActive(false);
         
         gameManager.EndGame();
     }
