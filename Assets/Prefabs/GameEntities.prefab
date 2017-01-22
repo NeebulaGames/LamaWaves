@@ -61,13 +61,14 @@ GameObject:
   - component: {fileID: 4541626038796898}
   - component: {fileID: 114234619753864402}
   - component: {fileID: 114493126509269352}
+  - component: {fileID: 114519293747077106}
   m_Layer: 0
   m_Name: LamaBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1110784421556794
 GameObject:
   m_ObjectHideFlags: 1
@@ -363,13 +364,14 @@ GameObject:
   - component: {fileID: 4549959743617858}
   - component: {fileID: 114286742191052142}
   - component: {fileID: 114214521939537716}
+  - component: {fileID: 114534205239804648}
   m_Layer: 0
   m_Name: LamaRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1402460878066194
 GameObject:
   m_ObjectHideFlags: 1
@@ -804,13 +806,14 @@ GameObject:
   - component: {fileID: 4308873157515628}
   - component: {fileID: 114326587944640250}
   - component: {fileID: 114891514781229200}
+  - component: {fileID: 114956793141794258}
   m_Layer: 0
   m_Name: LamaGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1851599854526006
 GameObject:
   m_ObjectHideFlags: 1
@@ -821,13 +824,14 @@ GameObject:
   - component: {fileID: 4196483367442456}
   - component: {fileID: 114932494102265168}
   - component: {fileID: 114811223026391922}
+  - component: {fileID: 114088019350544426}
   m_Layer: 0
   m_Name: LamaYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1868182733049434
 GameObject:
   m_ObjectHideFlags: 1
@@ -1925,6 +1929,19 @@ MonoBehaviour:
   m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114088019350544426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1851599854526006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76e356f662f6794c962b468a910c04f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputNumber: 0
+  playerNumber: 0
 --- !u!114 &114135126528866400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2089,7 +2106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smashMode: 0
   numberOfPlayers: 0
-  inGameUI: {fileID: 0}
+  inGameUI: {fileID: 1149885214889936}
   countdown3: {fileID: 1241885248613012, guid: e93b9e482d4e59b4fbbb12bdb3ab670d, type: 2}
   countdown2: {fileID: 1186091184662784, guid: 00cd9e1a2cadc90458f6d5a9a5bfaa10, type: 2}
   countdown1: {fileID: 1799965697492386, guid: 4d12e2f25a6331149bf32387f1bd6e80, type: 2}
@@ -2106,13 +2123,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c611d301adf0e1645a584e3e4b075393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomUiView: {fileID: 0}
+  bottomUiView: {fileID: 114042830594995934}
+  lamaContainer: {fileID: 1997489984261586}
   gauge_bonus: 2
   lamaResultsControllers:
+  - {fileID: 114214521939537716}
   - {fileID: 114811223026391922}
   - {fileID: 114891514781229200}
   - {fileID: 114493126509269352}
-  - {fileID: 114214521939537716}
 --- !u!114 &114286742191052142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2295,6 +2313,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114519293747077106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1109485137495624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76e356f662f6794c962b468a910c04f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputNumber: 0
+  playerNumber: 0
 --- !u!114 &114522015208797218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2349,6 +2380,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114534205239804648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392836129037396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76e356f662f6794c962b468a910c04f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputNumber: 0
+  playerNumber: 0
 --- !u!114 &114540106570446478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2970,6 +3014,19 @@ MonoBehaviour:
   moveDistance: 1.4
   refreshSpeed: 0.5
   turboMode: 0
+--- !u!114 &114956793141794258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848045330114812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76e356f662f6794c962b468a910c04f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputNumber: 0
+  playerNumber: 0
 --- !u!114 &114964736531180380
 MonoBehaviour:
   m_ObjectHideFlags: 1

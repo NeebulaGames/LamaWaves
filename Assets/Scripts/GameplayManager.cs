@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -10,7 +11,7 @@ public class GameplayManager : MonoBehaviour
     public bool smashMode = false;
     public int numberOfPlayers;
 
-	public GameObject inGameUI;
+    public GameObject inGameUI;
 
     public GameObject countdown3;
     public GameObject countdown2;
@@ -20,14 +21,14 @@ public class GameplayManager : MonoBehaviour
     private LamaGameManager gameManager;
     private AudioManager gameAudio;
     private OnScreenButtonManager buttonsManager;
-	private PlayerManager playerManager;
+    private PlayerManager playerManager;
 
     void Awake()
     {
         gameManager = GetComponent<LamaGameManager>();
         gameAudio = GetComponent<AudioManager>();
         buttonsManager = GetComponent<OnScreenButtonManager>();
-		playerManager = GetComponent<PlayerManager>();
+        playerManager = GetComponent<PlayerManager>();
 
     }
 
@@ -41,7 +42,7 @@ public class GameplayManager : MonoBehaviour
         
     }
 
-    public void StartGame()
+    public void StartGame(Dictionary<int, int> players)
     {
         gameAudio.PlaySound("HighFive", audioDelay);
         smashMode = false;
@@ -49,9 +50,10 @@ public class GameplayManager : MonoBehaviour
         //TOOD: playercotroller preare players on screen
         StartCoroutine(CountdownStartGame());
         //CRIDA COROUTINE per llançar GameReady
-		playerManager.enabled = true;
+        playerManager.enabled = true;
+        playerManager.InitPlayers(players);
 
-		inGameUI.SetActive(true);
+        inGameUI.SetActive(true);
     }
 
     public void GameReady()
@@ -65,7 +67,7 @@ public class GameplayManager : MonoBehaviour
         Debug.Log("Game ended");
         buttonsManager.enabled = false;
         gameAudio.enabled = false;
-		playerManager.enabled = false;
+        playerManager.enabled = false;
         
         gameManager.EndGame();
     }

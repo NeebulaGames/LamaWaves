@@ -29,7 +29,7 @@ public class LamaGameManager : MonoBehaviour
         selector.enabled = false;
         gameplay.enabled = true;
 
-        gameplay.StartGame();
+        gameplay.StartGame(selector.associations);
     }
 
     public void EndGame()

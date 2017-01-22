@@ -6,9 +6,16 @@ public class Player : MonoBehaviour
     public int playerNumber;
 
     private MainCollider mMainCollider;
+    private WaveAnimation animation;
     
     void Start () {
         mMainCollider = FindObjectOfType<MainCollider>();
+        animation = GetComponent<WaveAnimation>();
+    }
+
+    public void ToggleAnimation(bool status)
+    {
+        animation.enabled = status;
     }
     
     void Update () {
