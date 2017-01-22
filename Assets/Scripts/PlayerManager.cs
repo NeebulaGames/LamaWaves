@@ -36,6 +36,8 @@ namespace LamaWaves.Scripts
         void OnEnable()
         {
             lamaContainer.SetActive(true);
+            scores = new [] { 0, 0, 0, 0 };
+            gauge = new[] { 0, 0, 0, 0 };
             lamaContainer.transform.DOLocalMoveY(-15f, 0f);
         }
 
